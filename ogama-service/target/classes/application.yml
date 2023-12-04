@@ -1,0 +1,26 @@
+server:
+  port: 7080
+spring:
+  application:
+    name: ogama-service
+  datasource:
+    url: jdbc:mysql://192.168.80.9:3306/db_game_account?characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+    default-property-inclusion: non_null # 对象的NULL值属性不转换为JSON
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.80.9:8848
+  redis:
+    host: 192.168.80.9
+    port: 6379
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:/mapper/**/*.xml
+
